@@ -1,5 +1,11 @@
 {% extends "appbuilder/base.html" %}
 
+<ul class=flashes>
+    {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+
 {% block content %}
 <h2><center>{{_('Page not found')}}<center></h2>
 {% endblock %}

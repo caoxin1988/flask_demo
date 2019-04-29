@@ -22,14 +22,13 @@ Your new app name: first_app
 Your engine type, SQLAlchemy or MongoEngine [SQLAlchemy]:
 Downloaded the skeleton app, good coding!
 $ cd first_app
-$ export FLASK_APP=app
 $ flask fab create-admin
-Username [admin]:
-User first name [admin]:
-User last name [user]:
-Email [admin@fab.org]:
-Password:
-Repeat for confirmation:
+  Username [admin]:
+  User first name [admin]:
+  User last name [user]:
+  Email [admin@fab.org]:
+  Password:
+  Repeat for confirmation:
 ```
 
 之后将会把flask-appbuilder的框架代码从[这里](https://github.com/dpgaspar/Flask-AppBuilder-Skeleton.git)下载到刚才填写的first_app这个目录下。
@@ -39,5 +38,10 @@ Repeat for confirmation:
 使用如下命令运行这个demo:
 
 > python run.py
+
+或者使用如下命令运行：
+
+>$ export FLASK_APP=app  
+ $ python -m flask run
 
 ## 2. flask-babel
