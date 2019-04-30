@@ -30,5 +30,8 @@ def set_sqlite_pragma(dbapi_connection, connection_record):
 """
 
 
+from . import apis
+from . import models
 from . import views
 from . import formviews
+
