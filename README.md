@@ -88,5 +88,27 @@ $ flask fab babel-compile
 之后会在messages.po文件同级目录下生成messages.mo文件。这个文件将最终被flask代码使用。
 
 
+在代码和templates中，使用gettext()和lazy_gettext()方法来进行语言的转换。如：
+
+```
+@app.route('/trans/')
+def translate(num=None):
+    if num is None:
+        return gettext(u'No users')
+    return ngettext(u'%(num)d user', u'%(num)d users', num)
+```
+
+lazy_getext()和gettext()的区别在于，lazy_gettext()所转换的文字，是在真正被使用的时候才会发生转换，如：
+
+```
+from flask_babel import lazy_gettext
+hello = lazy_gettext(u'Hello World')
+ 
+@app.route('/lazy')
+def lazy():
+    return unicode(hello)
+```
+
+
 
 ## 2. flask-babel
