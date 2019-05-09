@@ -29,7 +29,7 @@ def login():
 
         if user and request.form.get('password') == user['password']:
             curr_user = User()
-            curr_user.id = username
+            curr_user.id = username     # 最后会放到session['user_id']中
 
             login_user(curr_user, remember=True)
             # login_user(curr_user)
