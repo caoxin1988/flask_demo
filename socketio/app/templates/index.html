@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+</head>
+<body>
+<h1>ready to start test!</h1>
+
+<h2 id="t"></h2>
+<script type="text/javascript">
+$(document).ready(function() {
+	        namespace = '/test_conn';
+	        console.log('document ready')
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+	        socket.on('connect', function(msg) {
+	            socket.emit('my event', {data: "i'm connected"})
+                socket.emit('my event boradcast', {data: "i'm connected"})
+            })
+
+            socket.on('event response', function (msg) {
+                console.log(msg['data'])
+                console.log('in event response')
+            })
+
+            socket.on('mess', function (msg) {
+                console.log(msg['data'])
+                $('#t').text(msg['data'])
+            })
+
+            socket.on('my ev broadcast', function (msg) {
+                console.log(msg)
+            })
+
+            socket.on('my ev', function (msg) {
+                console.log(msg)
+            })
+	});
+</script>
+</body>
+</html>
+
