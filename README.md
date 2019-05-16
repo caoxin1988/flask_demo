@@ -34,5 +34,8 @@
 > $ cd sqlalchemy
 > $ python run.py
 
-
+## Run flask-restplus
+> $ pipenv shell
+> $ cd restplus
+> $ python run.py
 
