@@ -7,10 +7,14 @@
 import random
 from flask import render_template
 from flask_socketio import emit, send
+import time
 
 from app import app, socketio
 
 thread = None
+
+import eventlet
+eventlet.monkey_patch()
 
 
 def background_task():
@@ -38,6 +42,8 @@ def test_connect():
 
 @socketio.on('my event', namespace='/test_conn')
 def test_connect(message):
+    time.sleep(20)
+    print('test_connect', message)
 
     emit('my ev', message)
 
