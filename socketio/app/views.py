@@ -13,9 +13,6 @@ from app import app, socketio
 
 thread = None
 
-import eventlet
-eventlet.monkey_patch()
-
 
 def background_task():
     while True:
